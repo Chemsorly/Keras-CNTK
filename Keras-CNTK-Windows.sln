@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dockerfiles", "dockerfiles", "{46827B7F-A28C-4ED5-A1B5-43E71D4EB857}"
+	ProjectSection(SolutionItems) = preProject
+		dockerfiles\keras-cntk-windows.dockerfile = dockerfiles\keras-cntk-windows.dockerfile
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "files", "files", "{C7ACA54A-C2F2-479C-A016-77514AEE3D2F}"
 EndProject
