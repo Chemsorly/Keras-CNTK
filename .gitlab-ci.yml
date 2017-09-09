@@ -9,7 +9,7 @@ build:
   only:
     - master
   script:
-    - docker build -t chemsorly/keras-cntk-windows:latest -t chemsorly/msbuilder:%PROJECT_VERSION% -f .\dockerfiles\keras-cntk-windows.dockerfile .
+    - docker build -t chemsorly/keras-cntk-windows:latest -t chemsorly/keras-cntk-windows:%PROJECT_VERSION% -f .\dockerfiles\keras-cntk-windows.dockerfile .
     - docker push chemsorly/keras-cntk-windows:latest
     - docker push chemsorly/keras-cntk-windows:%PROJECT_VERSION%
 
