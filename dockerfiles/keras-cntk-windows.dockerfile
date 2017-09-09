@@ -1,8 +1,5 @@
 FROM microsoft/windowsservercore
 MAINTAINER chemso@gmx.de
-
-# docker push chemsorly/keras-cntk-windows
-
 SHELL ["powershell"]
 
 # install anaconda2
