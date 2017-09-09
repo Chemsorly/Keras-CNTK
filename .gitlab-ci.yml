@@ -1,6 +1,3 @@
-variables:
-    ASSETCONTAINER_NAME: "keras-cntk-windows-assets-$CI_BUILD_REF"
-
 stages:
     - build
 
@@ -14,5 +11,4 @@ build:
     - docker push chemsorly/keras-cntk-windows:%PROJECT_VERSION%
 
 after_script:
-    - docker rm %ASSETCONTAINER_NAME% -f
     - powershell docker rmi $(docker images -aq) -f
