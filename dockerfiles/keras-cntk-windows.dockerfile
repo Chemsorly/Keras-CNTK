@@ -5,7 +5,7 @@ SHELL ["powershell"]
 # install anaconda2
 RUN Invoke-WebRequest "https://repo.continuum.io/archive/Anaconda2-4.3.0.1-Windows-x86_64.exe" -OutFile "$env:TEMP\anaconda.exe" -UseBasicParsing
 RUN Start-Process "$env:TEMP\anaconda.exe" '/S /InstallationType=AllUsers /AddToPath=1 /RegisterPython=1 /D=C:\ProgramData\Anaconda2' -wait
-RUN Remove-Item "$env:TEMP\anaconda.exe.exe"
+RUN Remove-Item "$env:TEMP\anaconda.exe"
 
 # set env variables
 RUN setx PATH '%PATH%;C:\ProgramData\Anaconda2\Scripts'
