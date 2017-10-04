@@ -3,13 +3,13 @@ ENV CNTK_VERSION="2.2"
 ENV KERAS_BACKEND="cntk"
 RUN apt-get update && apt-get install -y --no-install-recommends \
     # General
-        ca-certificates \
-        wget \
+    ca-certificates \
+    wget \
 	git \
-        && \
+    && \
     # Clean-up
     apt-get -y autoremove \
-        && \
+    && \
     rm -rf /var/lib/apt/lists/*
 # Get CNTK Binary Distribution
 RUN CNTK_VERSION_DASHED=$(echo $CNTK_VERSION | tr . -) && \
@@ -21,8 +21,4 @@ RUN CNTK_VERSION_DASHED=$(echo $CNTK_VERSION | tr . -) && \
     /bin/bash /cntk/Scripts/install/linux/install-cntk.sh --py-version 27 --docker
 SHELL ["/bin/bash", "-c"]
 RUN source "/cntk/activate-cntk" && pip install keras && pip install unicodecsv
-RUN git clone https://git.chemsorly.com/Chemsorly/MA-C2K-LSTM.git
-RUN mkdir ./MA-C2K-LSTM/code/output_files/folds
-RUN mkdir ./MA-C2K-LSTM/code/output_files/results
-RUN mkdir ./MA-C2K-LSTM/code/output_files/models
 ENTRYPOINT /bin/bash
