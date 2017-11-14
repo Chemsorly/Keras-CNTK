@@ -1,18 +1,38 @@
 stages:
     - build
 
-build:
+build-win:
   stage: build
   only:
     - master
+  tags:
+    - docker
+    - shell
+    - windows
+
   script:
     - docker build -t chemsorly/keras-cntk:latest-win-py2-cpu -t chemsorly/keras-cntk:%PROJECT_VERSION%-win-py2-cpu -f .\dockerfiles\keras-cntk-windows-py2-cpu.dockerfile .
+    - docker login -u %DOCKER_LOGIN% -p %DOCKER_PASSWORD%
     - docker push chemsorly/keras-cntk:%PROJECT_VERSION%-win-py2-cpu
     - docker push chemsorly/keras-cntk:latest-win-py2-cpu
+    - docker rmi chemsorly/keras-cntk:latest-win-py2-cpu
+    
+build-ubuntu:
+  stage: build
+  only:
+    - master
+  tags:
+    - docker
+    - shell
+    - ubuntu
 
-    - docker build -t chemsorly/keras-cntk:latest-ubuntu-py2-cpu -t chemsorly/keras-cntk:%PROJECT_VERSION%-ubuntu-py2-cpu -f .\dockerfiles\keras-cntk-ubuntu-py2-cpu.dockerfile .
-    - docker push chemsorly/keras-cntk:%PROJECT_VERSION%-ubuntu-py2-cpu
-    - docker push chemsorly/keras-cntk:latest-ubuntu-py2-cpu
-
-after_script:
-    - powershell docker rmi $(docker images -aq) -f
+  script:
+    - sudo docker build -t chemsorly/keras-cntk:latest-ubuntu-py2-cpu -t chemsorly/keras-cntk:$PROJECT_VERSION-ubuntu-py2-cpu -f .\dockerfiles\keras-cntk-ubuntu-py2-cpu.dockerfile .
+    - sudo docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
+    - sudo docker push chemsorly/keras-cntk:$PROJECT_VERSION-ubuntu-py2-cpu
+    - sudo docker push chemsorly/keras-cntk:latest-ubuntu-py2-cpu
+    - sudo docker build -t chemsorly/keras-cntk:latest-ubuntu-py2-gpu -t chemsorly/keras-cntk:$PROJECT_VERSION-ubuntu-py2-gpu -f .\dockerfiles\keras-cntk-ubuntu-py2-gpu.dockerfile .
+    - sudo docker push chemsorly/keras-cntk:$PROJECT_VERSION-ubuntu-py2-gpu
+    - sudo docker push chemsorly/keras-cntk:latest-ubuntu-py2-gpu
+    - sudo docker rmi chemsorly/keras-cntk:latest-ubuntu-py2-cpu
+    - sudo docker rmi chemsorly/keras-cntk:latest-ubuntu-py2-gpu
