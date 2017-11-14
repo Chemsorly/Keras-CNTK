@@ -20,5 +20,5 @@ RUN CNTK_VERSION_DASHED=$(echo $CNTK_VERSION | tr . -) && \
     rm -f CNTK-${CNTK_VERSION_DASHED}-Linux-64bit-CPU-Only.tar.gz && \
     /bin/bash /cntk/Scripts/install/linux/install-cntk.sh --py-version 27 --docker
 SHELL ["/bin/bash", "-c"]
-RUN source "/cntk/activate-cntk" && pip install keras && pip install unicodecsv
+RUN source "/cntk/activate-cntk" && pip install keras && pip install unicodecsv && pip install distance && pip install jellyfish
 ENTRYPOINT /bin/bash
