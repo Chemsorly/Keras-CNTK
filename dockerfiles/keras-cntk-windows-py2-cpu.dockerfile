@@ -29,3 +29,5 @@ RUN pip install https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp27-cp27m-win_amd64.wh
 # install keras
 RUN pip install keras
 RUN pip install unicodecsv
+RUN pip install distance
+RUN pip install jellyfish
