@@ -13,7 +13,7 @@ build-win:
   script:
     - docker build -t chemsorly/keras-cntk:latest-windows-py2-cpu -t chemsorly/keras-cntk:%PROJECT_VERSION%-windows-py2-cpu -f .\dockerfiles\keras-cntk-windows-py2-cpu.dockerfile .
     - docker login -u %DOCKER_LOGIN% -p %DOCKER_PASSWORD%
-    - docker push chemsorly/keras-cntk:%PROJECT_VERSION%-widowsn-py2-cpu
+    - docker push chemsorly/keras-cntk:%PROJECT_VERSION%-windows-py2-cpu
     - docker push chemsorly/keras-cntk:latest-windows-py2-cpu
     - docker rmi chemsorly/keras-cntk:latest-windows-py2-cpu
     
