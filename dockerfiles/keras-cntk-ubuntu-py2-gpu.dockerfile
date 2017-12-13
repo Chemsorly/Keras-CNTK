@@ -1,5 +1,5 @@
 FROM nvidia/cuda:8.0-runtime-ubuntu14.04
-ENV CNTK_VERSION="2.2"
+ENV CNTK_VERSION="2.3.1"
 ENV KERAS_BACKEND="cntk"
 RUN apt-get update && apt-get install -y --no-install-recommends \
     # General
