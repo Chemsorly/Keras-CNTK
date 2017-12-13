@@ -24,7 +24,7 @@ RUN Start-Process "$env:TEMP\git.exe" '/SILENT' -wait
 RUN Remove-Item "$env:TEMP\git.exe"
 
 # install cntk
-RUN pip install https://cntk.ai/PythonWheel/GPU/cntk-2.1-cp27-cp27m-win_amd64.whl
+RUN pip install https://cntk.ai/PythonWheel/CPU-Only/cntk-2.3.1-cp27-cp27m-win_amd64.whl
 
 # install keras
 RUN pip install keras
