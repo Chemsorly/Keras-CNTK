@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.0-runtime-ubuntu16.04
+FROM nvidia/cuda:9.0-runtime-ubuntu14.04
 ENV CNTK_VERSION="2.3"
 ENV KERAS_BACKEND="cntk"
 RUN apt-get update && apt-get install -y --no-install-recommends \
