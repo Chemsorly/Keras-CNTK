@@ -14,7 +14,7 @@ RUN setx PYTHONIOENCODING UTF-8
 RUN setx KERAS_BACKEND cntk
 
 # install c++ redis for vs2015
-RUN Invoke-WebRequest "https://download.microsoft.com/download/6/A/A/6AA4EDFF-645B-48C5-81CC-ED5963AEAD48/vc_redist.x64.exe" -OutFile "$env:TEMP\cpp2015_redist.exe" -UseBasicParsing
+RUN Invoke-WebRequest "https://download.microsoft.com/download/6/D/F/6DF3FF94-F7F9-4F0B-838C-A328D1A7D0EE/vc_redist.x64.exe" -OutFile "$env:TEMP\cpp2015_redist.exe" -UseBasicParsing
 RUN Start-Process "$env:TEMP\cpp2015_redist.exe" '/install /quiet /norestart' -wait
 RUN Remove-Item "$env:TEMP\cpp2015_redist.exe"
 
@@ -24,7 +24,7 @@ RUN Start-Process "$env:TEMP\git.exe" '/SILENT' -wait
 RUN Remove-Item "$env:TEMP\git.exe"
 
 # install cntk
-RUN pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp27-cp27m-win_amd64.whl
+RUN pip install https://cntk.ai/PythonWheel/CPU-Only/cntk-2.2-cp27-cp27m-win_amd64.whl
 
 # install keras
 RUN pip install keras
