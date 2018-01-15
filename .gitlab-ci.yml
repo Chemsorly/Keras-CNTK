@@ -12,10 +12,14 @@ build-win:
 
   script:
     - docker build -t chemsorly/keras-cntk:latest-windows-py2-cpu -t chemsorly/keras-cntk:%PROJECT_VERSION%-windows-py2-cpu -f .\dockerfiles\keras-cntk-windows-py2-cpu.dockerfile .
+    - docker build -t chemsorly/keras-cntk:latest-windows-py3-cpu -t chemsorly/keras-cntk:%PROJECT_VERSION%-windows-py3-cpu -f .\dockerfiles\keras-cntk-windows-py3-cpu.dockerfile .
     - docker login -u %DOCKER_LOGIN% -p %DOCKER_PASSWORD%
     - docker push chemsorly/keras-cntk:%PROJECT_VERSION%-windows-py2-cpu
+    - docker push chemsorly/keras-cntk:%PROJECT_VERSION%-windows-py3-cpu
     - docker push chemsorly/keras-cntk:latest-windows-py2-cpu
+    - docker push chemsorly/keras-cntk:latest-windows-py3-cpu
     - docker rmi chemsorly/keras-cntk:latest-windows-py2-cpu
+    - docker rmi chemsorly/keras-cntk:latest-windows-py3-cpu
     
 build-ubuntu:
   stage: build
@@ -28,11 +32,19 @@ build-ubuntu:
 
   script:
     - sudo docker build -t chemsorly/keras-cntk:latest-ubuntu-py2-cpu -t chemsorly/keras-cntk:$PROJECT_VERSION-ubuntu-py2-cpu -f dockerfiles/keras-cntk-ubuntu-py2-cpu.dockerfile .
+    - sudo docker build -t chemsorly/keras-cntk:latest-ubuntu-py3-cpu -t chemsorly/keras-cntk:$PROJECT_VERSION-ubuntu-py3-cpu -f dockerfiles/keras-cntk-ubuntu-py3-cpu.dockerfile .
     - sudo docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
     - sudo docker push chemsorly/keras-cntk:$PROJECT_VERSION-ubuntu-py2-cpu
+    - sudo docker push chemsorly/keras-cntk:$PROJECT_VERSION-ubuntu-py3-cpu
     - sudo docker push chemsorly/keras-cntk:latest-ubuntu-py2-cpu
+    - sudo docker push chemsorly/keras-cntk:latest-ubuntu-py3-cpu
     - sudo docker build -t chemsorly/keras-cntk:latest-ubuntu-py2-gpu -t chemsorly/keras-cntk:$PROJECT_VERSION-ubuntu-py2-gpu -f dockerfiles/keras-cntk-ubuntu-py2-gpu.dockerfile .
+    - sudo docker build -t chemsorly/keras-cntk:latest-ubuntu-py3-gpu -t chemsorly/keras-cntk:$PROJECT_VERSION-ubuntu-py3-gpu -f dockerfiles/keras-cntk-ubuntu-py3-gpu.dockerfile .
     - sudo docker push chemsorly/keras-cntk:$PROJECT_VERSION-ubuntu-py2-gpu
+    - sudo docker push chemsorly/keras-cntk:$PROJECT_VERSION-ubuntu-py3-gpu
     - sudo docker push chemsorly/keras-cntk:latest-ubuntu-py2-gpu
+    - sudo docker push chemsorly/keras-cntk:latest-ubuntu-py3-gpu
     - sudo docker rmi chemsorly/keras-cntk:latest-ubuntu-py2-cpu
+    - sudo docker rmi chemsorly/keras-cntk:latest-ubuntu-py3-cpu
     - sudo docker rmi chemsorly/keras-cntk:latest-ubuntu-py2-gpu
+    - sudo docker rmi chemsorly/keras-cntk:latest-ubuntu-py3-gpu
