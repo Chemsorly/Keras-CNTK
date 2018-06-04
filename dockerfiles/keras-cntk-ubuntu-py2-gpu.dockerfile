@@ -1,6 +1,6 @@
 FROM nvidia/cuda:9.0-runtime-ubuntu16.04
 ENV KERAS_BACKEND="cntk"
-ENV 
+ENV CNTK_VERSION="2.5.1"
 RUN apt-get update && apt-get install -y --no-install-recommends \
     # General
     ca-certificates \
