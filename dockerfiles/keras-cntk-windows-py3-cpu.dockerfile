@@ -19,7 +19,7 @@ RUN Start-Process "$env:TEMP\cpp2015_redist.exe" '/install /quiet /norestart' -w
 RUN Remove-Item "$env:TEMP\cpp2015_redist.exe"
 
 # install git
-RUN Invoke-WebRequest "https://github.com/git-for-windows/git/releases/download/v2.14.2.windows.1/Git-2.14.2-64-bit.exe" -OutFile "$env:TEMP\git.exe" -UseBasicParsing
+RUN Invoke-WebRequest "http://github.com/git-for-windows/git/releases/download/v2.14.2.windows.1/Git-2.14.2-64-bit.exe" -OutFile "$env:TEMP\git.exe" -UseBasicParsing
 RUN Start-Process "$env:TEMP\git.exe" '/SILENT' -wait
 RUN Remove-Item "$env:TEMP\git.exe"
 
