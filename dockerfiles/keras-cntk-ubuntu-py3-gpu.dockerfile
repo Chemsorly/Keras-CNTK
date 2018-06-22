@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     python3 \
     python-pip3 \
+    python3-setuptools \
     libopenmpi-dev \
     && \
     # Clean-up
