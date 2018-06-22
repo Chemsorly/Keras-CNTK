@@ -14,5 +14,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get -y autoremove \
     && \
     rm -rf /var/lib/apt/lists/*
-RUN pip install cntk-gpu && pip install keras && pip install unicodecsv && pip install distance && pip install jellyfish
+RUN pip3 install cntk-gpu && pip3 install keras && pip3 install unicodecsv && pip3 install distance && pip3 install jellyfish
 ENTRYPOINT /bin/bash
