@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     wget \
     git \
     python3 \
-    python-pip3 \
+    python3-pip \
     python3-setuptools \
     libopenmpi-dev \
     && \
