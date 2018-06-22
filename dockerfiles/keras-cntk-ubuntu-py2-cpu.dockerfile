@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     python \
     python-pip \
+    python-setuptools \
+	libpython2.7 \
     libopenmpi-dev \
     && \
     # Clean-up
