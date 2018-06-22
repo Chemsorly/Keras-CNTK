@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     python \
     python-pip \
+    libopenmpi-dev \
     && \
     # Clean-up
     apt-get -y autoremove \
